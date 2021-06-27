@@ -1,0 +1,123 @@
+body {
+  background-image: url('./photos/background.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0px -150px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.MainCard {
+  background-color: rgba(255, 255, 255, 0.651);
+  width: 480px;
+  height: 700px;
+  position: absolute;
+  left: 37.5%;
+  top: 90px;
+  border: 4px rgb(255, 255, 255);
+  border-radius: 15px;
+  border-style: outset;
+}
+
+.InputSearch {
+  width: 200px;
+  height: 30px;
+  position: relative;
+  left: 130px;
+  top: 25px;
+  border: none;
+  border-bottom: 2px black solid;
+  border-radius: 8px;
+  outline: none;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.5s;
+  background: none;
+}
+
+.InputSearch:hover {
+  border-bottom: 2px rgb(68, 196, 255) solid;
+}
+
+.CityName {
+  position: relative;
+  top: 55px;
+  font-size: 55px;
+  margin: 0px;
+  color: rgb(36, 36, 36);
+  text-align: center;
+  text-shadow: 3px 2px rgba(145, 145, 145, 0.637);
+}
+
+.Temp {
+  position: relative;
+  left: 50px;
+  font-size: 50px;
+  width: fit-content;
+  display: inline;
+  text-align: center;
+}
+
+.FullYear {
+  position: relative;
+  top: 70px;
+  margin: 0px;
+  text-align: center;
+  font-size: 25px;
+}
+
+.Time {
+  position: relative;
+  top: 80px;
+  margin: 0px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.Icon {
+  position: relative;
+  left: 190px;
+  top: 30px;
+}
+
+.Description {
+  position: relative;
+  top: 100px;
+  margin: 0px;
+  font-size: 50px;
+  text-align: center;
+  transition-duration: 0.5s;
+}
+
+.Description:hover {
+  text-shadow: 3px 2px rgb(165, 165, 165);
+}
+
+.TempAndIcon {
+  position: relative;
+  top: 80px;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    background-size: 110%;
+    background-position: 0px 0px;
+  }
+
+  .MainCard {
+    width: 80%;
+    left: 10%;
+    top: 7%;
+    min-height: 650px;
+  }
+
+  .InputSearch {
+    left: 23%;
+  }
+
+  .Icon {
+    position: relative;
+    left: 120px;
+    top: 30px;
+  }
+}
