@@ -25,7 +25,7 @@ export default function Weather() {
 
     const [timeZone, setTimeZone] = useState();
 
-    const [locationAPI, setLocationAPI] = useState();
+    const [locationAPI, setLocationAPI] = useState(`https://api.openweathermap.org/data/2.5/weather?lat=${31.771959}&lon=${35.217018}&appid=${API_key}&lang=${lang}`);
 
     const [todayDateCondition, setTodayDateCondition] = useState();
 
@@ -44,13 +44,13 @@ export default function Weather() {
         () => {   // Returns the weather.
             fetch(locationAPI)
                 .then((response) => {
-                    return response.json()
+                    return response.json();
                 })
                 .then((data) => {
                     fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&exclude=current&appid=${API_key}`)
                         .then((response) => response.json())
-                        .then((data) => {
-                            setTimeZone(data.timezone)
+                        .then((data2) => {
+                            setTimeZone(data2.timezone)
                         })
                     setWeather({
                         City: data.name,
@@ -66,6 +66,7 @@ export default function Weather() {
                         City: 'Not Found',
                     })
                     setTodayDateCondition(false)
+                    throw data
                 })
         }, [locationAPI]);
 
@@ -74,7 +75,7 @@ export default function Weather() {
             <input type='text' className='InputSearch' placeholder='Search...' onKeyPress={e => {
                 if (e.key === 'Enter') {
                     setLocationAPI(`https://api.openweathermap.org/data/2.5/weather?q=${e.target.value}&lang=${lang}&appid=${API_key}&lang=${lang}`)
-                }//api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+                }
             }} />
             <p className='CityName'>{weather.City}</p>
             {todayDateCondition && <TodayDate TimeZone={timeZone} />}
